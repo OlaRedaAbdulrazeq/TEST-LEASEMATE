@@ -42,7 +42,7 @@ export const useNotifications = () => {
   return context;
 };
 
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'https://test-backendleasemate-zeta.vercel.app';
 
 export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, token, socket } = useAuth();

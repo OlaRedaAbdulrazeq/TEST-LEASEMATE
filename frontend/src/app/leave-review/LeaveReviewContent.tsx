@@ -64,7 +64,7 @@ export default function LeaveReviewContent() {
     setSuccessMessage(null);
 
     try {
-      const res = await fetch("http://localhost:5000/api/reviews", {
+      const res = await fetch("https://test-backendleasemate-zeta.vercel.app/api/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

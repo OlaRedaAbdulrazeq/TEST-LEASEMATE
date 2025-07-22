@@ -81,7 +81,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const connectWebSocket = (userId: string) => {
     if (socketRef.current) return;
 
-    socketRef.current = io('http://localhost:5000', {
+    socketRef.current = io('https://test-backendleasemate-zeta.vercel.app', {
       transports: ['websocket'],
       withCredentials: true,
     });
@@ -118,7 +118,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const fetchUserData = async (authToken: string) => {
     try {
-      const response = await fetch('http://localhost:5000/api/users/me', {
+      const response = await fetch('https://test-backendleasemate-zeta.vercel.app/api/users/me', {
         headers: {
           'Authorization': `Bearer ${authToken}`,
           'Content-Type': 'application/json',

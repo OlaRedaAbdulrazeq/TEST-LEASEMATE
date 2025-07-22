@@ -111,7 +111,7 @@ export default function MaintenanceRequestsPage() {
         setError("يجب تسجيل الدخول أولاً");
         return;
       }
-      const res = await axios.get("http://localhost:5000/api/maintenance", {
+      const res = await axios.get("https://test-backendleasemate-zeta.vercel.app/api/maintenance", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -130,7 +130,7 @@ export default function MaintenanceRequestsPage() {
     try {
       setUnitsLoading(true);
       // Fetch tenant's leases to get their units
-      const res = await axios.get("http://localhost:5000/api/leases/my-leases", {
+      const res = await axios.get("https://test-backendleasemate-zeta.vercel.app/api/leases/my-leases", {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       });
@@ -196,7 +196,7 @@ export default function MaintenanceRequestsPage() {
       formData.append("unitId", form.unitId);
       if (form.contractId) formData.append("contractId", form.contractId);
       if (form.image) formData.append("image", form.image);
-      await axios.post("http://localhost:5000/api/maintenance", formData, {
+      await axios.post("https://test-backendleasemate-zeta.vercel.app/api/maintenance", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -337,7 +337,7 @@ export default function MaintenanceRequestsPage() {
                             setButtonLoading(prev => ({ ...prev, [req._id]: true }));
                             setError("");
                             try {
-                              await axios.patch(`http://localhost:5000/api/maintenance/${req._id}`,
+                              await axios.patch(`https://test-backendleasemate-zeta.vercel.app/api/maintenance/${req._id}`,
                                 { status: 'in progress', notes: req._landlordNote || '' },
                                 { headers: { Authorization: `Bearer ${token}` }, withCredentials: true }
                               );
@@ -362,7 +362,7 @@ export default function MaintenanceRequestsPage() {
                             setError("");
                             try {
                               console.log('PATCH /api/maintenance/:id', req._id, { status: 'resolved', notes: req._landlordNote || '' });
-                              await axios.patch(`http://localhost:5000/api/maintenance/${req._id}`,
+                              await axios.patch(`https://test-backendleasemate-zeta.vercel.app/api/maintenance/${req._id}`,
                                 { status: 'resolved', notes: req._landlordNote || '' },
                                 { headers: { Authorization: `Bearer ${token}` }, withCredentials: true }
                               );

@@ -69,7 +69,7 @@ export default function ManageUnitPage() {
               try {
                 const token = localStorage.getItem("leasemate_token");
                 if (!token) throw new Error("لم يتم العثور على التوكن");
-                await fetch(`http://localhost:5000/api/units/${unitId}`, {
+                await fetch(`https://test-backendleasemate-zeta.vercel.app/api/units/${unitId}`, {
                   method: "DELETE",
                   headers: { Authorization: `Bearer ${token}` },
                 });
@@ -173,7 +173,7 @@ export default function ManageUnitPage() {
                     editImages.forEach((file) => {
                       formData.append("images", file);
                     });
-                    await fetch(`http://localhost:5000/api/units/${unitId}`, {
+                    await fetch(`https://test-backendleasemate-zeta.vercel.app/api/units/${unitId}`, {
                       method: "PATCH",
                       headers: {
                         Authorization: `Bearer ${token}`,

@@ -32,7 +32,7 @@ export default function NotificationsPage() {
           }
           if (leaseId && revieweeId) {
             try {
-              const res = await fetch(`http://localhost:5000/api/reviews/check/${leaseId}/${revieweeId}`, {
+              const res = await fetch(`https://test-backendleasemate-zeta.vercel.app/api/reviews/check/${leaseId}/${revieweeId}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('leasemate_token') || ''}` },
               });
               const data = await res.json();
